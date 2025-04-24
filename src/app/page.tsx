@@ -12,9 +12,9 @@ import dynamic from "next/dynamic";
 const tabs = ["Dashboard", "Products", "Sales"];
 
 
-const MapClient = dynamic(() => import("../components/MapClient"), {
+/*const MapClient = dynamic(() => import("../components/MapClient"), {
   ssr: false,
-});
+});*/
 
 const productData = [
   { name: "June 1", value: 1200 },
@@ -50,7 +50,7 @@ const orders = [
   { id: 10, client: "Vienna Roast", status: "Done" },
 ];
 
-const options = [
+/*const options = [
   { name: "Coffee", key: "coffee" },
   { name: "Hot water", key: "hotWater" },
   { name: "Milk products", key: "milkProducts" },
@@ -60,9 +60,9 @@ const options = [
   { name: "Steam", key: "steam" },
   { name: "Powder", key: "powder" },
   { name: "Flavour", key: "flavour" },
-];
+];*/
 
-const dashboardData = {
+/*const dashboardData = {
   machines: 137,
   connected: 20,
   lastMonthProducts: 20741,
@@ -82,7 +82,7 @@ const dashboardData = {
     { date: "Jun 25", value: 2000 },
     { date: "Jun 30", value: 2800 }
   ]
-};
+};*/
 
 
 export default function HomePage() {
