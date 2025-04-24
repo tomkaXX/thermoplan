@@ -6,7 +6,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import "leaflet/dist/leaflet.css";
 import Image from "next/image";
-import dynamic from "next/dynamic";
+//import dynamic from "next/dynamic";
 
 
 const tabs = ["Dashboard", "Products", "Sales"];
