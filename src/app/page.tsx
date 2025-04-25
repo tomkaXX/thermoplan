@@ -6,7 +6,11 @@ import { Card, CardContent } from "../components/ui/card";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import "leaflet/dist/leaflet.css";
 import Image from "next/image";
-import MapClient from "../components/MapClient";
+//import MapClient from "../components/MapClient";
+
+import dynamic from "next/dynamic";
+
+const MapClient = dynamic(() => import("../components/MapClient"), { ssr: false });
 //import dynamic from "next/dynamic";
 
 
