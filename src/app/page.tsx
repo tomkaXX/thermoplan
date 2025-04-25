@@ -308,22 +308,26 @@ export default function HomePage() {
 
             <Card>
               <CardContent>
-                <h2 className="text-xl font-semibold mb-4">Client Locations</h2>
-                <div className="h-[500px] w-full">
+              <h2 className="text-xl font-semibold mb-4">Client Locations</h2>
+<div className="h-[500px] w-full rounded-2xl overflow-hidden border shadow">
+  <MapContainer
+    center={[20, 0]}
+    zoom={2}
+    scrollWheelZoom={false}
+    style={{ height: "100%", width: "100%", borderRadius: "1rem" }} // ✅ use style, not className
+  >
+    <TileLayer
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    />
+    {clients.map((client, index) => (
+      <Marker key={index} position={[client.lat, client.lng]}>
+        <Popup>{client.name} - {client.country}</Popup>
+      </Marker>
+    ))}
+  </MapContainer>
+</div>
 
-                  <MapContainer center={[20, 0]} zoom={2} scrollWheelZoom={false} className="h-full w-full rounded-2xl">
-                    <TileLayer
-                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                      attribution="&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors"
-                    />
-                    {clients.map((client, index) => (
-                      <Marker key={index} position={[client.lat, client.lng]}>
-                        <Popup>{client.name} - {client.country}</Popup>
-                      </Marker>
-                    ))}
-                  </MapContainer>
-
-                </div>
               </CardContent>
             </Card>
           </div>
