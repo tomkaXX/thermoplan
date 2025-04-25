@@ -2,10 +2,11 @@
 
 import React, { useState } from "react";
 import { Card, CardContent } from "../components/ui/card";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+//import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import "leaflet/dist/leaflet.css";
 import Image from "next/image";
+import MapClient from "../components/MapClient";
 //import dynamic from "next/dynamic";
 
 
@@ -216,15 +217,12 @@ export default function HomePage() {
             <Card>
               <CardContent>
                 <h2 className="font-bold text-xl mb-2">Map of Machines</h2>
-                <MapContainer center={[47.0305, 8.4262]} zoom={13} scrollWheelZoom={false} className="h-48 w-full z-0">
-                  <TileLayer
-                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-                  <Marker position={[47.0305, 8.4262]}>
-                    <Popup>Thermoplan HQ</Popup>
-                  </Marker>
-                </MapContainer>
+                <MapClient
+    center={[47.0305, 8.4262]}
+    zoom={13}
+    height="192px"
+    markers={[{ lat: 47.0305, lng: 8.4262, label: "Thermoplan HQ" }]}
+  />
               </CardContent>
             </Card>
           </div>
@@ -310,22 +308,18 @@ export default function HomePage() {
               <CardContent>
               <h2 className="text-xl font-semibold mb-4">Client Locations</h2>
 <div className="h-[500px] w-full rounded-2xl overflow-hidden border shadow">
-  <MapContainer
-    center={[20, 0]}
-    zoom={2}
-    scrollWheelZoom={false}
-    style={{ height: "100%", width: "100%", borderRadius: "1rem" }} // ✅ use style, not className
-  >
-    <TileLayer
-      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    />
-    {clients.map((client, index) => (
-      <Marker key={index} position={[client.lat, client.lng]}>
-        <Popup>{client.name} - {client.country}</Popup>
-      </Marker>
-    ))}
-  </MapContainer>
+<MapClient
+          center={[20, 0]}
+          zoom={2}
+          height="100%"
+          markers={clients.map((client) => ({
+            lat: client.lat,
+            lng: client.lng,
+            label: `${client.name} - ${client.country}`,
+          }))}
+        />
+
+
 </div>
 
               </CardContent>
