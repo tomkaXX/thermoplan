@@ -13,10 +13,6 @@ import MapClient from "../components/MapClient";
 const tabs = ["Dashboard", "Products", "Sales"];
 
 
-/*const MapClient = dynamic(() => import("../components/MapClient"), {
-  ssr: false,
-});*/
-
 const productData = [
   { name: "June 1", value: 1200 },
   { name: "June 7", value: 1900 },
@@ -50,40 +46,6 @@ const orders = [
   { id: 9, client: "Café Rio", status: "Blocked" },
   { id: 10, client: "Vienna Roast", status: "Done" },
 ];
-
-/*const options = [
-  { name: "Coffee", key: "coffee" },
-  { name: "Hot water", key: "hotWater" },
-  { name: "Milk products", key: "milkProducts" },
-  { name: "Cold milk products", key: "coldMilk" },
-  { name: "2 milk alternatives", key: "twoMilk" },
-  { name: "More than 2 milk alternatives", key: "multiMilk" },
-  { name: "Steam", key: "steam" },
-  { name: "Powder", key: "powder" },
-  { name: "Flavour", key: "flavour" },
-];*/
-
-/*const dashboardData = {
-  machines: 137,
-  connected: 20,
-  lastMonthProducts: 20741,
-  milkProducts: 12286,
-  todayProducts: 563,
-  weeklyProducts: 3893,
-  monthlyProducts: 563,
-  consumptionToday: 6.31,
-  consumptionWeek: 39.89,
-  consumptionMonth: 6.31,
-  productTrends: [
-    { date: "Jun 1", value: 1000 },
-    { date: "Jun 5", value: 1200 },
-    { date: "Jun 10", value: 1800 },
-    { date: "Jun 15", value: 1600 },
-    { date: "Jun 20", value: 2400 },
-    { date: "Jun 25", value: 2000 },
-    { date: "Jun 30", value: 2800 }
-  ]
-};*/
 
 
 export default function HomePage() {
